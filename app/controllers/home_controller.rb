@@ -18,7 +18,7 @@ class HomeController < ApplicationController
   end
 
   def charge
-    Stripe.api_key = "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+    Stripe.api_key = "sk_test_inYgDN1LPX9fmtUSPUFVsD5W"
 
     token = params[:stripeToken]
 
