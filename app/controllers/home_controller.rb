@@ -1,10 +1,4 @@
 class HomeController < ApplicationController
-  def index
-  end
-
-  def custom
-  end
-
   def charge_index
     flash[:notice] = charge
 
