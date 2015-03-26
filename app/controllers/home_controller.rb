@@ -2,6 +2,21 @@ class HomeController < ApplicationController
   def index
   end
 
+  def custom
+  end
+
+  def charge_index
+    flash[:notice] = charge
+
+    redirect_to root_url
+  end
+
+  def charge_custom
+    flash[:notice] = charge
+
+    redirect_to custom_url
+  end
+
   def charge
     Stripe.api_key = "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 
@@ -16,7 +31,6 @@ class HomeController < ApplicationController
       )
 
       msg = "Succesfully processed Credit Card"
-
     rescue Stripe::CardError => e
       err = e.json_body[:error]
 
@@ -34,8 +48,6 @@ class HomeController < ApplicationController
       msg = "Some other non Stripe error"
     end
 
-    flash[:notice] = msg
-
-    redirect_to root_url
+    msg
   end
 end
