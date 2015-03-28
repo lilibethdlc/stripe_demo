@@ -21,13 +21,12 @@ class HomeController < ApplicationController
         :amount => 2000, # amount in cents
         :currency => "usd",
         :source => token,
-        :description => "payinguser@example.com"
+        :description => "abc@example.com"
       )
 
       msg = "Succesfully processed Credit Card"
     rescue Stripe::CardError => e
       err = e.json_body[:error]
-
       msg = "status: #{e.http_status} type: #{err[:type]} code: #{err[:code]}
       param: #{err[:param]} message: #{err[:message]}"
     rescue Stripe::InvalidRequestError => e
